@@ -92,3 +92,52 @@ if (contactForm) {
     }, 1500);
   });
 }
+
+// Glass Card Spotlight Glow Effect
+const cards = document.querySelectorAll('.glass-card');
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
+// Interactive Project Filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.projects-grid .project-card');
+
+if (filterButtons.length > 0 && projectCards.length > 0) {
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Toggle active states on button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const categories = category ? category.split(' ') : [];
+        
+        // Hide card first with fade-out scale animation
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95) translateY(10px)';
+        
+        setTimeout(() => {
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            card.style.display = 'block';
+            // Force reflow
+            card.offsetHeight;
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1) translateY(0)';
+          } else {
+            card.style.display = 'none';
+          }
+        }, 300);
+      });
+    });
+  });
+}

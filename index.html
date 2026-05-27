@@ -115,9 +115,18 @@
           <h2>Featured Projects</h2>
           <div class="line"></div>
         </div>
+
+        <!-- Project Filters -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="embedded">Embedded & IoT</button>
+          <button class="filter-btn" data-filter="robotics">Robotics</button>
+          <button class="filter-btn" data-filter="software">Software & C</button>
+        </div>
+
         <div class="projects-grid">
           <!-- Project 1: AtmosSense -->
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-category="embedded">
             <div class="project-image">
               <img src="/images/atmossense.png" alt="AtmosSense">
             </div>
@@ -132,10 +141,16 @@
               <a href="https://github.com/Rebellion-167/AtmosSense" target="_blank" style="color: var(--primary-color)"><i data-lucide="github" style="width: 20px;"></i></a>
             </div>
             <p style="color: var(--text-secondary); margin-top: 0.5rem;">Smart Indoor Environmental Monitoring System with OLED display, RGB alerts, and web dashboard, integrating environmental sensors with responsive UI indicators.</p>
+            <div class="project-links">
+              <a href="https://github.com/Rebellion-167/AtmosSense" target="_blank" class="project-link">
+                <i data-lucide="github"></i>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
           </div>
 
           <!-- Project 2: DinoJump_OLED -->
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-category="embedded">
             <div class="project-image">
               <img src="/images/dino-jump.png" alt="DinoJump OLED">
             </div>
@@ -150,10 +165,16 @@
               <a href="https://github.com/Rebellion-167/DinoJump_OLED" target="_blank" style="color: var(--primary-color)"><i data-lucide="github" style="width: 20px;"></i></a>
             </div>
             <p style="color: var(--text-secondary); margin-top: 0.5rem;">A sophisticated physical remake of the Chrome Dino game. Built using an Arduino Nano, SPI OLED display, and piezo buzzer. Features smooth pixel animations, real-time gameplay logic, and custom EEPROM-based persistent high score saving.</p>
+            <div class="project-links">
+              <a href="https://github.com/Rebellion-167/DinoJump_OLED" target="_blank" class="project-link">
+                <i data-lucide="github"></i>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
           </div>
 
           <!-- Project 3: Obstacle Avoiding Car -->
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-category="robotics embedded">
             <div class="project-image">
               <img src="/images/obstacle-avoiding-car.png" alt="Obstacle Avoiding Car">
             </div>
@@ -168,10 +189,16 @@
               <a href="https://github.com/Rebellion-167/Obstacle-Avoiding-Car" target="_blank" style="color: var(--primary-color)"><i data-lucide="github" style="width: 20px;"></i></a>
             </div>
             <p style="color: var(--text-secondary); margin-top: 0.5rem;">Autonomous robot car that detects and navigates around obstacles using ultrasonic sensors and H-bridge motor drivers, showing embedded logic control.</p>
+            <div class="project-links">
+              <a href="https://github.com/Rebellion-167/Obstacle-Avoiding-Car" target="_blank" class="project-link">
+                <i data-lucide="github"></i>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
           </div>
 
           <!-- Project 4: Tic-Tac-Toe-in-C -->
-          <div class="glass-card project-card">
+          <div class="glass-card project-card" data-category="software">
             <div class="project-image">
               <img src="/images/tic-tac-toe.png" alt="Tic Tac Toe in C">
             </div>
@@ -185,12 +212,18 @@
               <a href="https://github.com/Rebellion-167/Tic-Tac-Toe-in-C" target="_blank" style="color: var(--primary-color)"><i data-lucide="github" style="width: 20px;"></i></a>
             </div>
             <p style="color: var(--text-secondary); margin-top: 0.5rem;">A clean, logic-based implementation of the classic Tic Tac Toe game in C. Showcases foundational programming expertise including control flow, array manipulation, and structured win-checking.</p>
+            <div class="project-links">
+              <a href="https://github.com/Rebellion-167/Tic-Tac-Toe-in-C" target="_blank" class="project-link">
+                <i data-lucide="github"></i>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Skills Section -->
-      <section id="skills" class="container" style="background: rgba(255,255,255,0.01); border-radius: 40px; padding: 6rem 2rem;">
+      <section id="skills" class="container" style="background: rgba(255,255,255,0.01); border-radius: 40px; padding: 6rem 2rem; margin-top: 6rem; margin-bottom: 6rem;">
         <div class="section-header">
           <h2>Technical Expertise</h2>
           <div class="line"></div>
@@ -248,7 +281,7 @@
       </section>
 
       <!-- Professional Involvement & Leadership Section -->
-      <section id="involvement" class="container" style="background: rgba(255,255,255,0.01); border-radius: 40px; padding: 6rem 2rem; margin-bottom: 2rem;">
+      <section id="involvement" class="container" style="background: rgba(255,255,255,0.01); border-radius: 40px; padding: 6rem 2rem; margin-top: 6rem; margin-bottom: 6rem;">
         <div class="section-header">
           <h2>Professional Involvement & Leadership</h2>
           <div class="line"></div>
