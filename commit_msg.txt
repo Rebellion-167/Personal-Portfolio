@@ -1,1 +1,0 @@
-Fix typewriter jitter, add magic underline, scale layout to 90%
