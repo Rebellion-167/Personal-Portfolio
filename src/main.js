@@ -34,23 +34,65 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ─── Active Link Tracking ─────────────────────────────────────────────────────
+// ─── Active Link Tracking & Magic Underline ───────────────────────────────────
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
+const navLinksContainer = document.getElementById('nav-links');
+const navUnderline = document.getElementById('nav-underline');
+
+function updateUnderline(targetElement) {
+  if (!navUnderline || !navLinksContainer) return;
+  if (!targetElement) {
+    navUnderline.style.width = '0px';
+    return;
+  }
+  const rect = targetElement.getBoundingClientRect();
+  const containerRect = navLinksContainer.getBoundingClientRect();
+  
+  navUnderline.style.left = `${rect.left - containerRect.left}px`;
+  navUnderline.style.width = `${rect.width}px`;
+}
 
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(section => {
-    if (pageYOffset >= section.offsetTop - section.clientHeight / 3) {
+    if (window.scrollY >= section.offsetTop - section.clientHeight / 3) {
       current = section.getAttribute('id');
     }
   });
+  
+  let activeLink = null;
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href').slice(1) === current) {
       link.classList.add('active');
+      activeLink = link;
     }
   });
+
+  if (activeLink) {
+    updateUnderline(activeLink);
+  }
+});
+
+// Update underline on hover
+navLinks.forEach(link => {
+  link.addEventListener('mouseenter', () => updateUnderline(link));
+  link.addEventListener('mouseleave', () => {
+    const activeLink = document.querySelector('.nav-links a.active');
+    updateUnderline(activeLink);
+  });
+});
+
+// Initial trigger on load
+setTimeout(() => {
+  const activeLink = document.querySelector('.nav-links a.active');
+  updateUnderline(activeLink);
+}, 200);
+
+window.addEventListener('resize', () => {
+  const activeLink = document.querySelector('.nav-links a.active');
+  updateUnderline(activeLink);
 });
 
 // ─── Smooth Scroll ────────────────────────────────────────────────────────────

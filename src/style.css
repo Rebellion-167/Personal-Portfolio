@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 90%;
 }
 
 body {
@@ -65,7 +66,7 @@ a {
 
 /* Layout Components */
 .container {
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -216,6 +217,7 @@ nav.scrolled {
 .nav-links {
   display: flex;
   gap: 2.5rem;
+  position: relative;
 }
 
 .nav-links a {
@@ -225,21 +227,18 @@ nav.scrolled {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   position: relative;
+  padding-bottom: 4px;
 }
 
-.nav-links a::after {
-  content: '';
+.nav-underline {
   position: absolute;
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: var(--primary-color);
-  transition: var(--transition);
-}
-
-.nav-links a:hover::after, .nav-links a.active::after {
-  width: 100%;
+  transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -578,13 +577,54 @@ nav.scrolled {
   background: rgba(146, 180, 167, 0.05);
 }
 
-/* Contact */
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
 }
+
+.contact-info-card, .contact-form-card {
+  border-top: 4px solid var(--primary-color) !important;
+  box-shadow: 0 10px 30px -15px var(--primary-glow);
+  transition: var(--transition);
+}
+
+.contact-info-card:hover, .contact-form-card:hover {
+  border-top-color: var(--secondary-color) !important;
+  box-shadow: 0 20px 40px -15px var(--primary-glow), 0 0 30px -5px rgba(146, 180, 167, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.contact-item i, .contact-item svg {
+  color: var(--primary-color);
+  transition: var(--transition);
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.contact-item:hover {
+  background: rgba(146, 180, 167, 0.04);
+  border-color: rgba(146, 180, 167, 0.15);
+  transform: translateX(6px);
+}
+
+.contact-item:hover i, .contact-item:hover svg {
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
 
 .form-group {
   margin-bottom: 1.5rem;
