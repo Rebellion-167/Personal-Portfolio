@@ -890,6 +890,7 @@ footer {
   
   .hero h1 {
     font-size: 2.6rem;
+    min-height: 2.4em;
   }
 
   .hero {
