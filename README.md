@@ -9,13 +9,9 @@ A sleek, modern, and interactive single-page personal portfolio.
 
 </div>
 
----
-
 ## 🔗 Visit the Portfolio
 You can check out my full professional profile, projects, academic timeline, and contact options directly on the live website:
 👉 **[barniktech.vercel.app](https://barniktech.vercel.app/)**
-
----
 
 ## 🛠️ How It Was Built
 This portfolio is built completely from scratch using clean, modern web technologies:
